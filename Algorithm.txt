@@ -1,0 +1,29 @@
+The provided code appears to implement a dynamic programming solution for a specific problem. Let me describe the algorithm step by step:
+
+1. **Input Reading:**
+   - Read the number of test cases (`tests`).
+   - For each test case, read the values of `n` (size of the grid) and `k` (number of filled cells).
+
+2. **Grid Initialization:**
+   - Initialize a 2D array `cost` to represent the grid and set all elements to 0.
+   - Initialize a 2D boolean array `calced` to keep track of whether a specific result has been calculated.
+   - Initialize a 2D array `dp` to store the dynamic programming results.
+
+3. **Populate Grid:**
+   - For each filled cell (specified by `k`), read the coordinates `(x, y)` and increment the corresponding element in the `cost` grid.
+
+4. **Dynamic Programming - Precomputation:**
+   - Perform a precomputation step to fill in the `cost` grid with cumulative sums.
+   - Iterate over the grid in reverse order, updating each element by adding the values from the cell below and to the left and subtracting the value from the bottom-left cell.
+
+5. **Dynamic Programming - Recursive Calculation:**
+   - Implement a recursive function `calc(l, r)` to calculate the minimum cost to reach cell `(l, r)` from the top-left cell `(0, 0)`.
+   - The function uses memoization to avoid redundant calculations by storing and checking the results in the `dp` array.
+
+6. **Output:**
+   - Print the minimum cost to reach the bottom-right cell `(n-1, n-1)` for each test case.
+
+7. **Main Execution:**
+   - For each test case, call the `solve()` function.
+
+In summary, the algorithm employs dynamic programming to efficiently calculate the minimum cost to reach the bottom-right cell in a grid, considering certain costs associated with each cell. The recursive approach with memoization helps avoid redundant calculations and improves the overall efficiency of the solution.
